@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Forced Landscape Orientation Logic via CSS Media Queries */
+
+/* Default: hide the orientation lock overlay on landscape/desktop */
+.orientation-lock-overlay {
+  display: none !important;
+}
+
+/* On mobile / tablet screens in portrait orientation, force show warning overlay */
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+  .orientation-lock-overlay:not(.dismissed) {
+    display: flex !important;
+  }
+}
+
+/* Keyframe for rotating phone demonstration */
+@keyframes device-rotate-anim {
+  0%, 15% {
+    transform: rotate(0deg) scale(1);
+  }
+  45%, 75% {
+    transform: rotate(-90deg) scale(1.08);
+  }
+  90%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-rotate-device {
+  animation: device-rotate-anim 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: center center;
+}
+
+/* Pulsing rotation guideline ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+/* Forced virtual landscape rotation class if user enables virtual landscape on portrait phone */
+.force-virtual-landscape {
+  transform: rotate(90deg);
+  transform-origin: center center;
+  width: 100vh !important;
+  height: 100vw !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50vw;
+  margin-left: -50vh;
+}

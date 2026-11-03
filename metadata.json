@@ -1,0 +1,6 @@
+{
+  "name": "Pythagoras Adventure",
+  "description": "Game edukasi interaktif petualangan matematika teorema Pythagoras dengan puzzle geometri, pengukuran, dan visualisasi interaktif.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
